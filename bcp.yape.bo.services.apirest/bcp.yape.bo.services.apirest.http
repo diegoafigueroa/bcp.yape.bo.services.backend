@@ -1,0 +1,6 @@
+@bcp.yape.bo.services.apirest_HostAddress = http://localhost:5129
+
+GET {{bcp.yape.bo.services.apirest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
