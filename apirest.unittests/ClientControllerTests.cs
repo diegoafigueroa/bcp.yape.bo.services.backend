@@ -25,7 +25,7 @@ namespace bcp.yape.bo.services.apirest.Tests
         [Fact]
         public async Task CreateClient_ShouldReturnCreatedAtAction_WhenClientIsSuccessfullyCreated()
         {
-            // Arrange: Prepara los datos de entrada y el comportamiento del mock
+            // Arrange
             var request = new ClientRegistrationRequest
             {
                 Name = "Juan",
@@ -40,10 +40,10 @@ namespace bcp.yape.bo.services.apirest.Tests
             var expectedValidationResult = new ValidationResult(true, "", expectedGuid);
             _mockClientService.Setup(service => service.AddClientAsync(It.IsAny<ClientRegistrationData>())).Returns(Task.FromResult(expectedValidationResult));
 
-            // Act: Llama al método que deseas probar
+            // Act
             var result = await _controller.CreateClient(request);
 
-            // Assert: Verifica que el resultado sea el esperado
+            // Assert
             var actionResult = result as CreatedAtActionResult;
             Assert.NotNull(actionResult);
             Assert.Equal(201, actionResult.StatusCode);
