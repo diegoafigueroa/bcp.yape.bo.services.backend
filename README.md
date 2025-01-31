@@ -32,8 +32,36 @@ El servicio incluye un conjunto de **validaciones** robustas para garantizar que
 
 - **Validación de número de celular**: El servicio verifica si el número de teléfono ya está registrado en el sistema antes de proceder con el registro.
 - **Consumo de servicio SOAP**: Se consulta el servicio SOAP externo para obtener información sobre el número de teléfono y se realiza la validación de los documentos asociados a esa persona, verificando que el tipo y número de documento coincidan con los registros existentes.
-- **Validación de campos obligatorios**: Se valida que los campos esenciales (nombre, apellido, número de celular, tipo de documento, número de documento) estén presentes y sean correctos.
-- **Validación de formato**: Los campos como el número de celular y el número de documento se validan utilizando expresiones regulares para asegurar que sigan el formato esperado.
+- **Validación de campos obligatorios**: Se valida que los campos esenciales (nombre, apellido, número de celular, tipo de documento, número de documento) estén presentes y sean correctos (capa de webapi).
+- **Validación de formato**: Los campos como el número de celular y el número de documento se validan utilizando expresiones regulares para asegurar que sigan el formato esperado (capa de webapi).
+
+### Validaciones preguntar
+// IF NO VALID PERSON WAS FOUND, RETURN A VALIDATION ERROR
+// TODO: VALIDATE THIS SCENARIO. CREATE A PERSON (CRM !?, EXTERNAL INTEGRATION WITH ANOTHER PORT ?) OR ERROR ?
+if (filterPeople.Count == 0)
+    return new ValidationResult(false, "La persona no esta registrada (número de documento y tipo de documento)");
+
+// IF THERE ARE MULTIPLE RECORDS WITH THE SAME PHONE NUMBER, RETURN AN ERROR
+// IF THERE ARE MULTIPLE RECORDS, RETURN A VALIDATION ERROR
+// TODO: VALIDATE THIS SCENARIOS. IS THIS POSSIBLE ?
+if (filterPeople.Count > 1)
+    return new ValidationResult(false, "Se encontraron múltiples registros para la persona.");
+
+### Validaciones sugeridas
+1. COUNTRY OR YAPE BLACK-LIST (RISK PROFILE, FRAUD, INTERPOL ? ETC) ?
+2. CORPORATIVE CELL PHONE NUMBER ?
+3. AGE ? IN FACT, THIS IS A CURRENT VALIDATION ON THE PAGE
+https://www.yape.com.bo/centro_de_ayuda/crear-tu-cuenta-yape.html#porque-no-puedo-crear-mi-cuenta-en-yape
+4. NUMBER OF ALLOWED YAPE ACCOUNTS (6)
+https://www.yape.com.bo/centro_de_ayuda/crear-tu-cuenta-yape.html#porque-no-puedo-crear-mi-cuenta-en-yape
+5. IT'S NOT A BOLIVIAN IDENTITY CARD ? 
+https://www.yape.com.bo/centro_de_ayuda/crear-tu-cuenta-yape.html#porque-no-puedo-crear-mi-cuenta-en-yape
+6. UPDATE THE CLIENT' DATA TO CRM !?
+7. VIRTUAL SIM CARDS ?
+8. LAWS !? 
+9. VALIDATE THE IDENTITY CARD ON GOVERNMENT ? THE IDENTITY CARD IS VALID ?
+10. SUSPICIOUS NAMES OR LAST NAMES: JOHN DOE, LA CHILINDRINA, ETC
+
 
 ### Modelo de Registro de Cliente
 
@@ -69,7 +97,7 @@ Para ejecutar el servicio de registro, simplemente se debe iniciar el proyecto y
 
 ## Pruebas Unitarias
 
-El proyecto incluye 1 ejemplo de **pruebas unitarias** para validar el funcionamiento de la capa de Web API. Estas pruebas aseguran que los endpoints respondan correctamente a diferentes escenarios de entrada. No fue posible construir mayores pruebas unitarias, debido al corto tiempo de desarrollo. Queda como futura mejora un mayor cobertura en TDD.
+El proyecto incluye las **pruebas unitarias** de las reglas de negocio (core) con una gran cobertura del código fuente. Se remueven temporalmente las pruebas unitarias de la capa de WebApi por elección del framework de pruebas.
 
 ## Limitaciones y Áreas No Cubiertas
 
