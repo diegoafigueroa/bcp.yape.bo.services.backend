@@ -4,7 +4,7 @@
 
 Este proyecto implementa un servicio de registro de clientes específicamente diseñado para **Yape Bolivia**. Utilizando una **arquitectura hexagonal**, se logró crear un sistema modular, flexible y fácil de escalar. La arquitectura implementada proporciona una separación clara entre la lógica de negocio central y los detalles de infraestructura, permitiendo que los diferentes componentes del sistema puedan evolucionar de forma independiente. La solución ofrece una API Web RESTful que gestiona el proceso de registro de clientes, con validaciones de datos y consumo de un servicio SOAP externo para verificar la existencia de personas mediante el número de teléfono.
 
-El servicio también está documentado mediante **Swagger**, lo que facilita la comprensión de los endpoints y su interacción con la API. Además, se incluye un ejemplo de prueba unitaria para la capa Web API, que puede ser extendido con más pruebas en el futuro.
+El servicio también está documentado mediante **Swagger**, lo que facilita la comprensión de los endpoints y su interacción con la API. Además, se incluye las pruebas unitarias para la capa core. Las pruebas unitarias pueden ser extendidas a otras capas de la arquitectura.
 
 ## Arquitectura
 
