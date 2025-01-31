@@ -67,15 +67,11 @@ https://www.yape.com.bo/centro_de_ayuda/crear-tu-cuenta-yape.html#porque-no-pued
 
 El modelo `ClientRegistrationRequest` define los datos necesarios para registrar un cliente en el sistema. Este modelo es validado a través de anotaciones como `[Required]`, `[StringLength]`, `[RegularExpression]`, entre otras, para garantizar la validez de los datos antes de ser procesados por la lógica del negocio.
 
-#### Campos del Modelo:
-
+**Campos del Modelo**:
 - **Nombre y Apellido**: Los campos de nombre y apellido tienen un mínimo de 2 caracteres y un máximo de 100.
-- **Número de Celular**: El número de celular debe tener una longitud exacta de 8 caracteres y debe comenzar con un 6 o un 7.
-- **Tipo y Número de Documento**: Se validan mediante enumeraciones y expresiones regulares para asegurar que el formato sea el correcto.
-
-### Validación de Edad (No Implementada)
-
-Aunque **Yape Bolivia** requiere que los usuarios sean mayores de edad para completar el registro, esta validación no fue implementada en la versión actual del sistema. Esta validación podría añadirse fácilmente en una futura actualización, donde se verifique que la persona registrada sea mayor de 18 años a partir de su fecha de nacimiento.
+- **Número de Celular**: El número de celular debe tener una longitud exacta de 8 caracteres y debe comenzar con un 6 o un 7. Debe ser un número.
+- **Tipo**: Se validan mediante enumeraciones y expresiones regulares para asegurar que el formato sea el correcto. (1=Carnet de Identidad; 2=Pasaporte). Ningun otro permitido
+- **Número de Documento**: Debe ser un número y tener una longitud entre 5 y 11 caracteres.
 
 ### Consideraciones Regionales
 
@@ -93,7 +89,7 @@ Para facilitar el desarrollo y despliegue rápido del sistema, se implementó un
 
 ## Ejecución
 
-Para ejecutar el servicio de registro, simplemente se debe iniciar el proyecto y acceder a la interfaz Swagger en `http://localhost:5000/swagger` para explorar los diferentes endpoints disponibles.
+Para ejecutar el servicio de registro, simplemente se debe iniciar el proyecto y acceder a la interfaz Swagger (se carga por defecto) para explorar los diferentes endpoints disponibles.
 
 ## Pruebas Unitarias
 
@@ -103,7 +99,6 @@ El proyecto incluye las **pruebas unitarias** de las reglas de negocio (core) co
 
 El sistema presenta ciertas limitaciones que deben tenerse en cuenta antes de su implementación en un entorno de producción:
 
-- **Validación de Edad No Implementada**: Aunque **Yape Bolivia** requiere que los usuarios sean mayores de edad para completar el registro, esta validación no fue implementada en la versión actual del sistema. Se recomienda agregar esta validación en una futura versión.
-- **Falta de Autenticación y Autorización**: El sistema no implementa ningún mecanismo de autenticación o autorización, lo que es un requisito fundamental en aplicaciones reales. Se recomienda implementar estas funciones para garantizar la seguridad de los datos de los usuarios.
-- **No Se Consideraron Escenarios de Multipaís**: El sistema está diseñado explícitamente para **Yape Bolivia**, sin considerar casos de uso para otros países. No se implementaron funcionalidades de internacionalización ni localización. En un futuro, se podría considerar la extensión del sistema para ser utilizado en otros países de América Latina.
-- **Limitaciones en la Base de Datos**: Se utiliza un repositorio en memoria para facilitar las pruebas y el desarrollo rápido. Esto no es adecuado para un entorno de producción, y se recomienda reemplazarlo por una base de datos real.
+- **Falta de autenticación y autorización**: El sistema no implementa ningún mecanismo de autenticación o autorización, lo que es un requisito fundamental en aplicaciones reales. Se recomienda implementar estas funciones para garantizar la seguridad de los datos de los usuarios.
+- **No se consideraron escenarios de Multipaís**: El sistema está diseñado explícitamente para **Yape Bolivia**, sin considerar casos de uso para otros países. No se implementaron funcionalidades de internacionalización ni localización. En un futuro, se podría considerar la extensión del sistema para ser utilizado en otros países de América Latina.
+- **Limitaciones en la base de datos**: Se utiliza un repositorio en memoria para facilitar las pruebas y el desarrollo rápido. Esto no es adecuado para un entorno de producción, y se recomienda reemplazarlo por una base de datos real.
