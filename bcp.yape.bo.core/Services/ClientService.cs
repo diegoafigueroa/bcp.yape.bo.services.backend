@@ -44,14 +44,34 @@ public class ClientService : IClientService
             .ToList();
 
         // IF NO VALID PERSON WAS FOUND, RETURN A VALIDATION ERROR
+        // TODO: VALIDATE THIS SCENARIO. CREATE A PERSON (CRM !?, EXTERNAL INTEGRATION WITH ANOTHER PORT ?) OR ERROR ?
         if (filterPeople.Count == 0)
             return new ValidationResult(false, "La persona no esta registrada (número de documento y tipo de documento)");
 
-        // IF THERE ARE MULTIPLE RECORDS WITH THE SAME PHONE NUMBER, RETURN AN ERROR
+        // IF THERE ARE MULTIPLE RECORDS, RETURN A VALIDATION ERROR
+        // TODO: VALIDATE THIS SCENARIOS. IS THIS POSSIBLE ?
         if (filterPeople.Count > 1)
-            return new ValidationResult(false, "Se encontraron múltiples registros con el mismo número de teléfono.");
+            return new ValidationResult(false, "Se encontraron múltiples registros para la persona.");
+
+        // TODO: ADDITIONAL SCENARIOS TO ASK
+        // 1. COUNTRY OR YAPE BLACK-LIST (RISK PROFILE, FRAUD, INTERPOL ? ETC) ?
+        // 2. CORPORATIVE CELL PHONE NUMBER ?
+        // 3. AGE ? IN FACT, THIS IS A CURRENT VALIDATION ON THE PAGE
+        // https://www.yape.com.bo/centro_de_ayuda/crear-tu-cuenta-yape.html#porque-no-puedo-crear-mi-cuenta-en-yape
+        // 4. NUMBER OF ALLOWED YAPE ACCOUNTS (6)
+        // https://www.yape.com.bo/centro_de_ayuda/crear-tu-cuenta-yape.html#porque-no-puedo-crear-mi-cuenta-en-yape
+        // 5. IT'S NOT A BOLIVIAN IDENTITY CARD ? 
+        // https://www.yape.com.bo/centro_de_ayuda/crear-tu-cuenta-yape.html#porque-no-puedo-crear-mi-cuenta-en-yape
+        // 6. UPDATE THE CLIENT' DATA TO CRM !?
+        // 7. VIRTUAL SIM CARDS ?
+        // 8. LAWS !? 
+        // 9. VALIDATE THE IDENTITY CARD ON GOVERNMENT ? THE IDENTITY CARD IS VALID ?
+        // 10. SUSPICIOUS NAMES OR LAST NAMES: JOHN DOE, LA CHILINDRINA, ETC
 
         // IF VALIDATION IS SUCCESSFUL, PROCEED TO SAVE THE CLIENT
+        // TODO. ADDITIONAL SCENARIOS TO ASK
+        // 1. SAVE A HISTORICAL CREDIT RANK RECORD !?
+        // 2. CATEGORIZE THE CLIENT: VIP, ETC ?
         var clientGuid = await _clientRepositoryPort.AddClientAsync(clientRegistrationData);
 
         // RETURN SUCCESS STATUS

@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bcp.yape.bo.core", "bcp.yap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bcp.yape.bo.infrastructure", "bcp.yape.bo.infrastructure\bcp.yape.bo.infrastructure.csproj", "{7B20DED7-F5C5-4AE4-8D96-01EC5656BF0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bcp.yape.bo.services.apirest", "bcp.yape.bo.services.apirest\bcp.yape.bo.services.apirest.csproj", "{EAC60A06-F7C1-46D9-A957-03C9EAAD11F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bcp.yape.bo.services.apirest", "bcp.yape.bo.services.apirest\bcp.yape.bo.services.apirest.csproj", "{EAC60A06-F7C1-46D9-A957-03C9EAAD11F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TESTING", "TESTING", "{257AACC4-742D-4388-88EB-3BA7C1A62807}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UNIT AND INTEGRAL TESTING", "UNIT AND INTEGRAL TESTING", "{ADFA9A08-10B6-492A-B783-C123710D2005}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "apirest.unittests", "apirest.unittests\apirest.unittests.csproj", "{15423261-AB9F-426B-8A3D-84CCFECE41A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "apirest.unittests", "apirest.unittests\apirest.unittests.csproj", "{15423261-AB9F-426B-8A3D-84CCFECE41A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "core.unittests", "core.unittests\core.unittests.csproj", "{7D079A33-1242-43EE-9715-8EC208B83302}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{15423261-AB9F-426B-8A3D-84CCFECE41A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15423261-AB9F-426B-8A3D-84CCFECE41A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15423261-AB9F-426B-8A3D-84CCFECE41A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D079A33-1242-43EE-9715-8EC208B83302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D079A33-1242-43EE-9715-8EC208B83302}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D079A33-1242-43EE-9715-8EC208B83302}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D079A33-1242-43EE-9715-8EC208B83302}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{ADFA9A08-10B6-492A-B783-C123710D2005} = {257AACC4-742D-4388-88EB-3BA7C1A62807}
 		{15423261-AB9F-426B-8A3D-84CCFECE41A4} = {ADFA9A08-10B6-492A-B783-C123710D2005}
+		{7D079A33-1242-43EE-9715-8EC208B83302} = {ADFA9A08-10B6-492A-B783-C123710D2005}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {963D06BE-C9DC-4F23-BDE5-5A1ED570400F}
