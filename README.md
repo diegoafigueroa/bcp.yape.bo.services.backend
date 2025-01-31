@@ -18,7 +18,7 @@ El sistema fue construido siguiendo los principios de la **arquitectura hexagona
 
 ### Swagger para Documentación
 
-Se utilizó **Swagger** para generar la documentación interactiva de la API. Swagger permite a los desarrolladores explorar todos los endpoints disponibles de la API, así como probarlos directamente desde la interfaz web. Este enfoque facilita la integración con otros sistemas y ayuda a mantener una documentación siempre actualizada y accesible. La documentación está completamente en español, adaptándose a las necesidades del equipo de desarrollo y los usuarios finales en Bolivia.
+Se utilizó **Swagger** para generar la documentación interactiva de la API. Swagger permite a los desarrolladores explorar todos los endpoints disponibles de la API, así como probarlos directamente desde la interfaz web. Este enfoque facilita la integración con otros sistemas y ayuda a mantener una documentación siempre actualizada y accesible. La documentación del controller de Swagger está en español (al igual que esta documentación), por facilidad a usuarios finales de Yape Bolivia su comprensión; sin embargo todo el código fuente esta en ingles.
 
 ### Repositorio y Servicios Externos
 
